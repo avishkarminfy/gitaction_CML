@@ -32,11 +32,6 @@ jobs:
         run: |
           jupyter nbconvert --to markdown executed_RFR.ipynb --output report.md
 
-      - name: Add plot if exists (optional)
-        if: ${{ exists('conf_matrix.png') }}
-        run: |
-          echo "![Confusion Matrix](conf_matrix.png)" >> report.md
-
       - name: Post CML comment
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
