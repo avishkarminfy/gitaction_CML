@@ -17,10 +17,10 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install system dependencies
+      - name: Fix distutils for Python 3.10
         run: |
-          sudo apt-get update
-          sudo apt-get install -y python3.10-distutils
+          wget https://bootstrap.pypa.io/get-pip.py
+          python get-pip.py --upgrade
 
       - name: Install Python dependencies
         run: |
